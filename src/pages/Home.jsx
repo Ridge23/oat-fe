@@ -7,7 +7,7 @@ import { Input, Select } from 'semantic-ui-react';
 import { fetchUsers } from 'actions/Users';
 
 import Layout from 'components/Layout';
-import OwnTable from 'components/OwnTable/OwnTable';
+import OwnTable from 'components/OwnTable';
 
 import './assets/styles/home.scss';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { StaticRouter } from 'react-router';
 
-import OwnTable from '../OwnTable';
+import OwnTable from '../index';
 
 it('renders without crashing', () => {
     const div = document.createElement('div');
