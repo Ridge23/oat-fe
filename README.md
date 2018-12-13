@@ -51,7 +51,7 @@ Due to security reasons, each and every .env variable should be prefixed by "ERS
 
 ## Router
 
-Skeleton uses react-router v4, which encourages "dynamic" usage - read more at https://reacttraining.com/react-router/web/guides/philosophy
+Application uses react-router v4, which encourages "dynamic" usage - read more at https://reacttraining.com/react-router/web/guides/philosophy
 However, skeleton provides possibility to declare routes in config via ``_config/routes.js``.
 You can use this config and render <Route> components iterating through it, but it is not mandatory (just removes some boilerplate).
 
@@ -61,11 +61,7 @@ Jest by facebook is used for testing by default.
 Some information:
 
 - https://facebook.github.io/jest/
-- https://facebook.github.io/jest/docs/en/getting-started.html
-- https://www.youtube.com/watch?v=sGKEm3-NFXw&t=1670s
 
-Some jest config is specified in package.json. If you add some webpack alises or module directories, please be sure to add them to jest config also.
-Each component should have a jest test inside its directory in tests subfolder.
 Run tests with commands:
 
 ``npm test``
