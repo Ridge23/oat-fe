@@ -79,7 +79,7 @@ class Home extends React.Component {
                 <div>
                     <div className="controls-container">
                         <div className="controls-container__seach-container">
-                            <Input placeholder="Search by name..." onChange={this.filterCallback} />
+                            <Input placeholder="Search by last name..." onChange={this.filterCallback} />
                         </div>
                         <div className="controls-container__pages-container">
                             <Select options={selectPagesOptions} value={limit} onChange={this.pagesCallback} />
