@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { Input } from 'semantic-ui-react';
+
 import { fetchUsers } from 'actions/Users';
 
 import Layout from 'components/Layout';
@@ -15,11 +17,20 @@ class Home extends React.Component {
             limit: 10,
             offset: 0
         };
+
+        this.filterCallback = this.filterCallback.bind(this);
     }
     componentDidMount() {
         const { offset, limit } = this.state;
 
         this.props.fetchUsers('', offset, limit);
+    }
+
+    filterCallback(event) {
+        const { offset, limit } = this.state;
+        const inputValue = event.target.value;
+
+        this.props.fetchUsers(inputValue.length > 2 ? inputValue : '', offset, limit);
     }
 
     render() {
@@ -45,6 +56,7 @@ class Home extends React.Component {
             <Layout>
                 <h2>Users</h2>
                 <div>
+                    <Input placeholder="Search by name..." onChange={this.filterCallback} />
                     <OwnTable
                         rows={users}
                         header={header}

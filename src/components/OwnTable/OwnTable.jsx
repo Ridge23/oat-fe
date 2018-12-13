@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Icon, Label, Menu, Table } from 'semantic-ui-react';
+import { Menu, Table } from 'semantic-ui-react';
 
 import 'semantic-ui-css/semantic.min.css';
 
@@ -72,9 +72,11 @@ class OwnTable extends React.Component {
             <Table.Footer>
                 <Table.Row>
                     <Table.HeaderCell colSpan="3">
-                        <Menu floated="right" pagination>
-                            {pageButtons}
-                        </Menu>
+                        {numberOfPages > 0 && (
+                            <Menu floated="right" pagination>
+                                {pageButtons}
+                            </Menu>
+                        )}
                     </Table.HeaderCell>
                 </Table.Row>
             </Table.Footer>
