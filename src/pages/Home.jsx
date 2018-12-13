@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { Input } from 'semantic-ui-react';
+import { Input, Select } from 'semantic-ui-react';
 
 import { fetchUsers } from 'actions/Users';
 
 import Layout from 'components/Layout';
 import OwnTable from 'components/OwnTable/OwnTable';
+
+import './assets/styles/home.scss';
 
 class Home extends React.Component {
     constructor(props) {
@@ -19,6 +21,7 @@ class Home extends React.Component {
         };
 
         this.filterCallback = this.filterCallback.bind(this);
+        this.pagesCallback = this.pagesCallback.bind(this);
     }
     componentDidMount() {
         const { offset, limit } = this.state;
@@ -31,6 +34,18 @@ class Home extends React.Component {
         const inputValue = event.target.value;
 
         this.props.fetchUsers(inputValue.length > 2 ? inputValue : '', offset, limit);
+    }
+
+    pagesCallback(event, { value }) {
+        this.setState(
+            {
+                limit: value
+            },
+            () => {
+                const { offset, limit } = this.state;
+                this.props.fetchUsers('', offset, limit);
+            }
+        );
     }
 
     render() {
@@ -52,19 +67,34 @@ class Home extends React.Component {
             }
         ];
 
+        const selectPagesOptions = [
+            { key: 5, value: 5, text: '5' },
+            { key: 10, value: 10, text: '10' },
+            { key: 25, value: 25, text: '25' }
+        ];
+
         return (
             <Layout>
                 <h2>Users</h2>
                 <div>
-                    <Input placeholder="Search by name..." onChange={this.filterCallback} />
-                    <OwnTable
-                        rows={users}
-                        header={header}
-                        totalRows={totalRows}
-                        itemsOnPage={limit}
-                        offset={offset}
-                        fetchFunction={fetchUsers}
-                    />
+                    <div className="controls-container">
+                        <div className="controls-container__seach-container">
+                            <Input placeholder="Search by name..." onChange={this.filterCallback} />
+                        </div>
+                        <div className="controls-container__pages-container">
+                            <Select options={selectPagesOptions} value={limit} onChange={this.pagesCallback} />
+                        </div>
+                    </div>
+                    <div>
+                        <OwnTable
+                            rows={users}
+                            header={header}
+                            totalRows={totalRows}
+                            itemsOnPage={limit}
+                            offset={offset}
+                            fetchFunction={fetchUsers}
+                        />
+                    </div>
                 </div>
             </Layout>
         );

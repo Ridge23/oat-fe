@@ -1,0 +1,12 @@
+.controls-container {
+    padding: 10px 0;
+    float: left;
+    &__seach-container {
+        float: left;
+    }
+
+    &__pages-container {
+        padding-left: 10px;
+        float: left;
+    }
+}
