@@ -10,7 +10,7 @@ const authorization = (allowedRoles) => {
                 // @todo Load user somehow (from redux etc.)
                 this.state = {
                     user: {
-                        name: 'eproseed',
+                        name: 'pavel',
                         role: 'user'
                     }
                 };

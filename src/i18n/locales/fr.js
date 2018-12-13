@@ -2,7 +2,7 @@ export default {
     locale: 'fr',
     messages: {
         app: {
-            title: 'Bienvenue a eProseed Skeleton app'
+            title: 'Bienvenue a Skeleton app'
         }
     }
 };
