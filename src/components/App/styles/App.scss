@@ -9,8 +9,8 @@ body {
 
     &-header {
         background-color: #222;
-        height: 80px;
-        padding: 20px;
+        height: 100px;
+        padding: 10px;
         color: white;
     }
 
@@ -34,6 +34,11 @@ body {
         to {
             transform: rotate(360deg);
         }
+    }
+
+    .layout-container {
+        width: 100%;
+        text-align: center;
     }
 }
 

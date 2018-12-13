@@ -15,7 +15,7 @@ function App() {
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                 </header>
-                <div>
+                <div className="layout-container">
                     {Object.values(appRoutes).map(({ path, component }) => {
                         return <Route exact path={path} component={component} key={path} />;
                     })}
