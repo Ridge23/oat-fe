@@ -8,10 +8,11 @@ const requestUsers = () => {
     };
 };
 
-const receiveUsers = (users) => {
+const receiveUsers = (users, totalRows) => {
     return {
         type: RECEIVE_USERS_ACTION,
-        users
+        users,
+        totalRows
     };
 };
 
@@ -28,7 +29,7 @@ const fetchUsers = (filter = '', offset = 0, limit = 10) => {
 
         try {
             const { data } = await userService.getUsers(filter, offset, limit);
-            dispatch(receiveUsers(data.data));
+            dispatch(receiveUsers(data.data, data.total));
         } catch (error) {
             dispatch(receiveUsersFailed(error));
             throw error;

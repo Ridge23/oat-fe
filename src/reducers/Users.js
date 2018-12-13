@@ -3,7 +3,8 @@ const initState = {
     page: 1,
     isFetching: false,
     filter: '',
-    itemsPerPage: 10
+    itemsPerPage: 10,
+    totalRows: 0
 };
 
 const REQUEST_USERS_ACTION = 'REQUEST_USERS';
@@ -22,8 +23,9 @@ const Users = (state = initState, action) => {
             return {
                 ...state,
                 isFetching: false,
-                users: action.users
-            }
+                users: action.users,
+                totalRows: action.totalRows
+            };
         }
         case RECEIVE_USERS_FAILED_ACTION: {
             return {
