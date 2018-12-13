@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 import { Menu, Table } from 'semantic-ui-react';
 
 import 'semantic-ui-css/semantic.min.css';
@@ -42,8 +42,12 @@ class OwnTable extends React.Component {
         return (
             <Table.Body>
                 {rows.map((row) => {
-                    const cells = header.map(({ key }) => {
-                        return <Table.Cell key={`${row.id}-${key}`}>{row[ key ]}</Table.Cell>;
+                    const cells = header.map(({ key }, index) => {
+                        let value = row[ key ];
+                        if (index === 1) {
+                            value = <Link to={`/users/${row.id}`}>{row[ key ]}</Link>;
+                        }
+                        return <Table.Cell key={`${row.id}-${key}`}>{value}</Table.Cell>;
                     });
 
                     return <Table.Row key={row.id}>{cells}</Table.Row>;

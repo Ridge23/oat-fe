@@ -6,7 +6,7 @@ class UserService extends ServiceAbstract {
     }
 
     getUser(id) {
-        return this.apiCaller.get(`user/${id}`);
+        return this.apiCaller.get(`users/${id}`);
     }
 }
 

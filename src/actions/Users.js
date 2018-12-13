@@ -1,4 +1,11 @@
-import { REQUEST_USERS_ACTION, RECEIVE_USERS_ACTION, RECEIVE_USERS_FAILED_ACTION } from 'reducers/Users';
+import {
+    REQUEST_USERS_ACTION,
+    RECEIVE_USERS_ACTION,
+    RECEIVE_USERS_FAILED_ACTION,
+    REQUEST_USER_ACTION,
+    RECEIVE_USER_ACTION,
+    RECEIVE_USER_FAILED_ACTION
+} from 'reducers/Users';
 
 import userService from 'services/UserService';
 
@@ -37,4 +44,38 @@ const fetchUsers = (filter = '', offset = 0, limit = 10) => {
     };
 };
 
-export { fetchUsers, userService };
+const requestUser = () => {
+    return {
+        type: REQUEST_USER_ACTION
+    };
+};
+
+const receiveUser = (user) => {
+    return {
+        type: RECEIVE_USER_ACTION,
+        user
+    };
+};
+
+const receiveUserFailed = (error) => {
+    return {
+        type: RECEIVE_USER_FAILED_ACTION,
+        error
+    };
+};
+
+const fetchUser = (id) => {
+    return async function(dispatch) {
+        dispatch(requestUser());
+
+        try {
+            const { data } = await userService.getUser(id);
+            dispatch(receiveUser(data));
+        } catch (error) {
+            dispatch(receiveUserFailed(error));
+            throw error;
+        }
+    };
+};
+
+export { fetchUsers, fetchUser };

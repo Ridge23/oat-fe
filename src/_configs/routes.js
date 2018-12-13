@@ -7,7 +7,7 @@ const routes = {
         component: Home
     },
     User: {
-        path: '/about',
+        path: '/users/:id',
         component: User
     }
 };
