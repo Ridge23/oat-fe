@@ -1,10 +1,9 @@
-# eProseed React Skeleton App
+React Skeleton App
 
 ## Intro
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 Ejected version with some modifications is used.
-Babel, ESLint and prettier configs used can be found in this repo: http://bitbucket.lux.eproseed.com:7990/projects/ERD/repos/js-common-configs/browse
 
 To start development, do:
 
@@ -21,7 +20,7 @@ npm run build
 
 ## Config
 
-Application has 2 config folders, one in the root of application, another is src. 
+Application has 2 config folders, one in the root of application, another is src.
 
 - /config has application build and webpack related configs
 - /src/_config holds configs which are used by application itself
@@ -40,7 +39,7 @@ Due to security reasons, each and every .env variable should be prefixed by "ERS
 - scripts - development
 - src - application logic
 
-/src folders: 
+/src folders:
 
 - _config - holds application-specific configs
 - actions - redux actions
@@ -111,6 +110,6 @@ Run tests with commands:
 
 ``npm test``
 
-or 
+or
 
 ``yarn test``

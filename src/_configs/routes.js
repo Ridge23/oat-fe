@@ -1,24 +1,14 @@
-import authorization from 'helpers/authorization';
-
 import Home from 'pages/Home';
-import About from 'pages/About';
-import Topics from 'pages/Topics';
-
-const user = authorization(['user', 'manager', 'admin']);
-const manager = authorization(['manager', 'admin']);
+import User from 'pages/User';
 
 const routes = {
     Home: {
         path: '/',
         component: Home
     },
-    About: {
+    User: {
         path: '/about',
-        component: user(About)
-    },
-    Topics: {
-        path: '/topics',
-        component: manager(Topics)
+        component: User
     }
 };
 
