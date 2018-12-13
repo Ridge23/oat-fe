@@ -78,16 +78,6 @@ Folder structure and usage are trivial:
 4. Read redux-thunk docs carefully, as it provides you with quite good functionality
 5. Install redux-devtools in your browser
 
-## i18n
-
-There is integrated support for internationalization using react-intl (https://github.com/yahoo/react-intl)
-For enabling support of multiple languages, add ERS_APP_AVAILABLE_LANGUAGES to .env file (see example in .env.dist).
-For switching languages, use ``switchLanguage`` action from ``actions/IntlActions``.
-
-By default, cookie with locale and sessionStorage entry ``locale`` are added for user (check ``reducer/IntlReducer``)
-
-Folder ``src/i18n/locales`` contains locales messages.
-
 ## Authentication and authorization
 
 For session mechanism redux-react-sessions ( https://www.npmjs.com/package/redux-react-session ) is used.
