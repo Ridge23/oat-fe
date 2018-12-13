@@ -23,7 +23,8 @@ class Home extends React.Component {
     }
 
     render() {
-        const { users } = this.props;
+        const { users, totalRows, fetchUsers } = this.props;
+        const { limit, offset } = this.state;
 
         const header = [
             {
@@ -44,7 +45,14 @@ class Home extends React.Component {
             <Layout>
                 <h2>Users</h2>
                 <div>
-                    <OwnTable rows={users} header={header} />
+                    <OwnTable
+                        rows={users}
+                        header={header}
+                        totalRows={totalRows}
+                        itemsOnPage={limit}
+                        offset={offset}
+                        fetchFunction={fetchUsers}
+                    />
                 </div>
             </Layout>
         );
@@ -53,7 +61,8 @@ class Home extends React.Component {
 
 Home.propTypes = {
     users: PropTypes.array,
-    fetchUsers: PropTypes.func.isRequired
+    fetchUsers: PropTypes.func.isRequired,
+    totalRows: PropTypes.number.isRequired
 };
 
 function mapStateToProps(state) {
