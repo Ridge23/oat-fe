@@ -49,41 +49,11 @@ Due to security reasons, each and every .env variable should be prefixed by "ERS
 - reducers - redux reducers
 - services - business logic to call backend services etc.
 
-## Services
-
-Axios https://github.com/axios/axios is used by default for making api requests.
-``services`` directory has 2 classes:
-- ApiCallerService - wrapper for axios, which is a common access point to axios config.
-- ServiceAbstract - abstract class which must be extended by all services. This way we are sure to use ApiCallerService by all other services.
-
 ## Router
 
 Skeleton uses react-router v4, which encourages "dynamic" usage - read more at https://reacttraining.com/react-router/web/guides/philosophy
 However, skeleton provides possibility to declare routes in config via ``_config/routes.js``.
 You can use this config and render <Route> components iterating through it, but it is not mandatory (just removes some boilerplate).
-
-## Redux
-
-Redux is used for store functionality in skeleton alongside with:
-
-- react-redux https://github.com/reduxjs/react-redux
-- redux-thunk https://github.com/reduxjs/redux-thunk
-- redux-devtools https://github.com/zalmoxisus/redux-devtools-extension
-
-Folder structure and usage are trivial:
-
-1. Create reducer in ``/reducers`` folder
-2. Define reducer in ``/reducers/index.js``
-3. Create actions in ``/actions`` folder
-4. Read redux-thunk docs carefully, as it provides you with quite good functionality
-5. Install redux-devtools in your browser
-
-## Authentication and authorization
-
-For session mechanism redux-react-sessions ( https://www.npmjs.com/package/redux-react-session ) is used.
-For authorization, authorization HOC was created (``components/App.js/authorization``). This HOC is required to fetch user data,
-check users role and determine if user can access defined route.
-``src/_configs/routes.js`` file contains some examples of users roles and usage of routes based on this mechanis.
 
 ## Tests
 
